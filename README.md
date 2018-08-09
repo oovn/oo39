@@ -3,6 +3,10 @@ ansible-playbook -i inventory.ini openshift-ansible/playbooks/prerequisites.yml
 ansible-playbook -i inventory.ini openshift-ansible/playbooks/deploy_cluster.yml
 
 ansible-playbook -i inventory.ini openshift-ansible/playbooks/adhoc/uninstall.yml
+
+git clone https://github.com/certbot/certbot
+certbot/certbot-auto certonly --standalone --agree-tos --email binhbat@live.com -d oocp.lamit.win -d okd.lamit.win
+
 ---------------------------
 # tao cert
 git clone https://github.com/certbot/certbot
