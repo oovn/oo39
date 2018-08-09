@@ -10,7 +10,7 @@ git clone https://github.com/certbot/certbot
 /root/certbot/certbot-auto certonly -d oovn.nodebb.xyz --standalone -m oovn@kynu.xyz -n --agree-tos
 # nap lai
 export openshift_master_overwrite_named_certificates=true
-export openshift_master_named_certificates=[{'certfile': '/etc/letsencrypt/live/oocp.lamit.win/fullchain.pem', 'keyfile': '/etc/letsencrypt/live/oocp.lamit.win/privkey.pem', 'names': ['openshift_master_api_dns_name'], 'cafile': '/etc/letsencrypt/live/oocp.lamit.win/fullchain.pem'}]
+export openshift_master_named_certificates=[{'certfile':'/etc/letsencrypt/live/oocp.lamit.win/fullchain.pem','keyfile':'/etc/letsencrypt/live/oocp.lamit.win/privkey.pem'}]
 
 # lam moi 
 #ansible-playbook openshift-ansible/playbooks/openshift-master/private/redeploy-certificates.yml
@@ -22,10 +22,15 @@ vgcreate vgdocker /dev/sdb
 # lvs - cat /etc/sysconfig/docker-storage-setup
 
 echo "CONTAINER_THINPOOL=docker" >> /etc/sysconfig/docker-storage-setup
+
 echo "VG=vgdocker" >> /etc/sysconfig/docker-storage-setup
+
 systemctl stop docker docker-storage-setup
+
 rm -rf /var/lib/docker/*
+
 systemctl start docker docker-storage-setup
+
 htpasswd -b /etc/origin/master/htpasswd ${USERNAME} ${PASSWORD}
 oc adm policy add-cluster-role-to-user cluster-admin ${USERNAME}
 
