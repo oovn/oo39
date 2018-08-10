@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for i in `seq 10 99`;
+for i in `seq 100 999`;
 do
 	DIRNAME="vol$i"
 	mkdir -p /mnt/data/$DIRNAME
