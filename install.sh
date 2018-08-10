@@ -89,9 +89,9 @@ fi
 # install the packages for Ansible
 yum -y --enablerepo=epel install ansible pyOpenSSL
 
-[ ! -d openshift-ansible ] && git clone https://github.com/irobl/openshift-ansible.git
+[ ! -d openshift-ansible ] && git clone https://github.com/openshift/openshift-ansible.git
 
-cd openshift-ansible && git fetch && git checkout release-3.9-patched && cd ..
+cd openshift-ansible && git fetch && git checkout release-3.9 && cd ..
 
 cat <<EOD > /etc/hosts
 127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
