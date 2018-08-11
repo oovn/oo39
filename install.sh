@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## see: https://youtu.be/aqXSbDZggK4
-
+export DISK=${DISK:="/dev/sdb"}
 ## Default variables to use
 export INTERACTIVE=true;
 export DOMAIN=${DOMAIN:="$(curl -s ipinfo.io/ip).nip.io"}
