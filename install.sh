@@ -54,14 +54,6 @@ if $INTERACTIVE ; then
 
 fi
 
-echo "******"
-echo "* Your domain is $DOMAIN "
-echo "* Your IP is $IP "
-echo "* Your username is $USERNAME "
-echo "* Your password is $PASSWORD "
-echo "* OpenShift version: $VERSION "
-echo "******"
-
 # install updates
 yum update -y
 
@@ -161,16 +153,4 @@ htpasswd -b /etc/origin/master/htpasswd ${USERNAME} ${PASSWORD}
 oc adm policy add-cluster-role-to-user cluster-admin ${USERNAME}
 
 #systemctl restart origin-master-api
-
-echo "******"
-
-echo "* Your console is https://oocp.$DOMAIN:$API_PORT"
-echo "* Your username is $USERNAME "
-echo "* Your password is $PASSWORD "
-echo "*"
-echo "* Login using:"
-echo "*"
-echo "$ oc login -u ${USERNAME} -p ${PASSWORD} https://oocp.$DOMAIN:$API_PORT/"
-echo "******"
-
-oc login -u ${USERNAME} -p ${PASSWORD} https://oocp.$DOMAIN:$API_PORT/
+#oc login -u ${USERNAME} -p ${PASSWORD} https://oocp.$DOMAIN:$API_PORT/
