@@ -5,8 +5,8 @@ export DISK=${DISK:="/dev/sdb"}
 ## Default variables to use
 export INTERACTIVE=true;
 export DOMAIN=${DOMAIN:="$(curl -s ipinfo.io/ip).nip.io"}
-export USERNAME=${USERNAME:="$(whoami)"}
-export PASSWORD=${PASSWORD:=password}
+export USERNAME=${USERNAME:="lamit"}
+export PASSWORD=${PASSWORD:=$(pwd)}
 export VERSION=${VERSION:="3.9.0"}
 export SCRIPT_REPO=${SCRIPT_REPO:="https://raw.githubusercontent.com/oovn/oo39/master"}
 export IP=${IP:="$(ip route get 8.8.8.8 | awk '{print $NF; exit}')"}
