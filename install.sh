@@ -133,6 +133,11 @@ fi
 curl -o inventory.download $SCRIPT_REPO/inventory.ini
 envsubst < inventory.download > inventory.ini
 
+#openshift_master_overwrite_named_certificates=true
+#openshift_master_named_certificates=[{'certfile':'/etc/letsencrypt/live/okd.${DOMAIN}/fullchain.pem','keyfile':'/etc/letsencrypt/live/okd.${DOMAIN}/privkey.pem','name':['okd.${DOMAIN}']}]
+#openshift_hosted_router_certificates=[{'certfile':'/etc/letsencrypt/live/okd.${DOMAIN}/fullchain.pem','keyfile':'/etc/letsencrypt/live/okd.${DOMAIN}/privkey.pem'}]
+
+
 # add proxy in inventory.ini if proxy variables are set
 if [ ! -z "${HTTPS_PROXY:-${https_proxy:-${HTTP_PROXY:-${http_proxy}}}}" ]; then
 	echo >> inventory.ini
