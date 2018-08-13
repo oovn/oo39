@@ -88,7 +88,7 @@ cd openshift-ansible && git fetch && git checkout release-3.9 && cd ..
 cat <<EOD > /etc/hosts
 127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
 ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
-${IP}		$(hostname) oocp oocp.${DOMAIN}
+${IP}		$(hostname) 00 00.okd.${DOMAIN}
 EOD
 
 if [ -z $DISK ]; then
@@ -133,11 +133,6 @@ fi
 curl -o inventory.download $SCRIPT_REPO/inventory.ini
 envsubst < inventory.download > inventory.ini
 
-#openshift_master_overwrite_named_certificates=true
-#openshift_master_named_certificates=[{'certfile':'/etc/letsencrypt/live/okd.${DOMAIN}/fullchain.pem','keyfile':'/etc/letsencrypt/live/okd.${DOMAIN}/privkey.pem','name':['okd.${DOMAIN}']}]
-#openshift_hosted_router_certificates=[{'certfile':'/etc/letsencrypt/live/okd.${DOMAIN}/fullchain.pem','keyfile':'/etc/letsencrypt/live/okd.${DOMAIN}/privkey.pem'}]
-
-
 # add proxy in inventory.ini if proxy variables are set
 if [ ! -z "${HTTPS_PROXY:-${https_proxy:-${HTTP_PROXY:-${http_proxy}}}}" ]; then
 	echo >> inventory.ini
@@ -158,4 +153,4 @@ htpasswd -b /etc/origin/master/htpasswd ${USERNAME} ${PASSWORD}
 oc adm policy add-cluster-role-to-user cluster-admin ${USERNAME}
 
 systemctl restart origin-master-api
-oc login -u ${USERNAME} -p ${PASSWORD} https://oocp.$DOMAIN:$API_PORT/
+oc login -u ${USERNAME} -p ${PASSWORD} https://00.okd.$DOMAIN:$API_PORT/
