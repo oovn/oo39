@@ -153,4 +153,4 @@ htpasswd -b /etc/origin/master/htpasswd ${USERNAME} ${PASSWORD}
 oc adm policy add-cluster-role-to-user cluster-admin ${USERNAME}
 
 systemctl restart origin-master-api
-oc login -u ${USERNAME} -p ${PASSWORD} https://00.okd.$DOMAIN:$API_PORT/
+oc login -u ${USERNAME} -p ${PASSWORD} https://0.okd.$DOMAIN:$API_PORT/
