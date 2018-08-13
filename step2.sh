@@ -88,7 +88,7 @@ cd openshift-ansible && git fetch && git checkout release-3.9 && cd ..
 cat <<EOD > /etc/hosts
 127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
 ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
-${IP}		$(hostname) 0.okd.${DOMAIN}
+${IP}		$(hostname) ${DOMAIN}
 EOD
 
 if [ -z $DISK ]; then
@@ -153,4 +153,4 @@ htpasswd -b /etc/origin/master/htpasswd ${USERNAME} ${PASSWORD}
 oc adm policy add-cluster-role-to-user cluster-admin ${USERNAME}
 
 systemctl restart origin-master-api
-oc login -u ${USERNAME} -p ${PASSWORD} https://0.okd.$DOMAIN:$API_PORT/
+oc login -u ${USERNAME} -p ${PASSWORD} https://$DOMAIN:$API_PORT/
