@@ -10,4 +10,4 @@ spec:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Recycle
   hostPath:
-    path: /mnt/data/vol
+    path: /mnt/local-storage/hdd/vol
