@@ -1,5 +1,5 @@
 #!/bin/bash
-uuid=$(uuidgen)
+#uuid=$(uuidgen)
 for i in `seq 10 99`;
 do
 	DIRNAME="vol$i"
