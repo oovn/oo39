@@ -5,7 +5,7 @@ export DISK=${DISK:="/dev/sdb"}
 ## Default variables to use
 export INTERACTIVE=true;
 export DOMAIN=${DOMAIN:="$(curl -s ipinfo.io/ip).nip.io"}
-export USERNAME=${USERNAME:="lamit"}
+export USERNAME=${USERNAME:="amit"}
 export PASSWORD=${PASSWORD:=$(pwd)}
 export VERSION=${VERSION:="3.9.0"}
 export SCRIPT_REPO=${SCRIPT_REPO:="https://raw.githubusercontent.com/oovn/oo39/master"}
